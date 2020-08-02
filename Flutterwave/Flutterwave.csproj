@@ -17,5 +17,9 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
+    </ItemGroup>
 
 </Project>
