@@ -1,13 +1,13 @@
 namespace Flutterwave.Interfaces
 {
-    public class IFlutterwaveStanRes
+    public class FlutterwaveStanRes
     {
         public string status { get; set; }
         public string massage { get; set; }
-        public IDataFlutterwaveStanRes DataFlutterwaveStanRes { get; set; }
+        public IDataFlutterwaveStanRes data { get; set; }
     }
 
-    public interface IDataFlutterwaveStanRes
+    public class IDataFlutterwaveStanRes
     {
         public string link { get; set; }
     }

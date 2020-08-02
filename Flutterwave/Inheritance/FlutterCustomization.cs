@@ -1,6 +1,6 @@
 namespace Flutterwave.Interfaces
 {
-    public interface IFlutterCustomization
+    public class FlutterCustomization
     {
         public string title { get; set; }
         public string description { get; set; }

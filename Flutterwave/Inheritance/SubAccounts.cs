@@ -1,6 +1,6 @@
 namespace Flutterwave.Interfaces
 {
-    public interface ISubAccounts
+    public class SubAccounts
     {
         /// <summary>
         /// This is the ID of the subaccount, you can get it from your dashboard e.g. RS_D87A9EE339AE28BFA2AE86041C6DE70E

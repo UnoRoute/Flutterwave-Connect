@@ -1,6 +1,6 @@
 namespace Flutterwave.Interfaces
 {
-    public enum IPaymentOptions
+    public enum PaymentOptions
     {
        account,
        card,

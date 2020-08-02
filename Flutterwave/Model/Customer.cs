@@ -1,6 +1,6 @@
 namespace Flutterwave.Model
 {
-    public interface Customer
+    public class Customer
     {
         public string email { get; set; }
         public string phonenumber { get; set; }

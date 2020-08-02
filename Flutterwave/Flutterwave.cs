@@ -13,14 +13,14 @@ namespace Flutterwave
         /// <summary>
         /// 
         /// </summary>
-        private string Sec_Key { get; set; }
+        public string Sec_Key { get; set; }
 
         public Flutterwave(string SecKey)
         {
-            Sec_Key = Sec_Key;
+            Sec_Key = SecKey;
         }
 
-        public async Task<IDataFlutterwaveStanRes> Standard(IFlutterwaveReqPara para)
+        public async Task<FlutterwaveStanRes> Standard(FlutterwaveReqPara para)
         {
             var Api = Sec_Key;
             var json = JsonConvert.SerializeObject(para);
@@ -34,7 +34,7 @@ namespace Flutterwave
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<IDataFlutterwaveStanRes>(result);
+            return JsonConvert.DeserializeObject<FlutterwaveStanRes>(result);
         }
     }
 }
