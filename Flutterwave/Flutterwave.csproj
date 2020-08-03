@@ -1,26 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <LangVersion>latestmajor</LangVersion>
+    <LangVersion>default</LangVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Nullable>disable</Nullable>
+    <Nullable>enable</Nullable>
     <PackageId>Bracketcore.Integration.FlutterwaveConnect</PackageId>
     <Version>1.0.0</Version>
     <Authors>Bracketcore</Authors>
     <Company>Bracketcore</Company>
     <Description>Flutterwave Integration for .Net and .Net Core</Description>
     <PackageTags>Flutterwave;Rave;Payment;Bracketcore</PackageTags>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <UserSecretsId>eda8ad3e-643c-49b4-b611-f1a54a0739ef</UserSecretsId>
     <Title>Flutterwave Connect</Title>
-    <PackageIconUrl>https://www.nuget.org/profiles/Bracketcore/avatar?imageSize=512</PackageIconUrl>
+    <PackageIconUrl>https://0.gravatar.com/avatar/cfabb91076e3c3351b9f1534e12e8a59?s=400&amp;d=mm</PackageIconUrl>
     <RepositoryUrl>https://github.com/Bracketcore/Flutterwave-Connect</RepositoryUrl>
     <PackageReleaseNotes>Release of Flutter Connect with standard integration</PackageReleaseNotes>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Product>Flutterwave Connect</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
+  
 </Project>

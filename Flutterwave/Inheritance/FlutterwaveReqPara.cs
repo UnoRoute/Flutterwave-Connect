@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Flutterwave.Model;
 
-namespace Flutterwave.Interfaces
+namespace Flutterwave.Inheritance
 {
     public class FlutterwaveReqPara
     {

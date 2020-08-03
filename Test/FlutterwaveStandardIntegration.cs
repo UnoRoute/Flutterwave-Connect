@@ -1,11 +1,10 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Flutterwave.Interfaces;
+using Flutterwave.Inheritance;
 using Flutterwave.Model;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-
 
 namespace Test
 {
@@ -26,10 +25,10 @@ namespace Test
 
             flutterwave = new Flutterwave.Flutterwave(key);
 
-            val = new FlutterwaveReqPara()
+            val = new FlutterwaveReqPara
             {
                 amount = 3000,
-                customer = new Customer()
+                customer = new Customer
                 {
                     email = "ehigiepaul@gmail.com",
                     name = "Paul Ehigie",
@@ -39,7 +38,7 @@ namespace Test
                     FirstName = "Paul",
                     LastName = "Paul"
                 },
-                customization = new FlutterCustomization()
+                customization = new FlutterCustomization
                 {
                     description = "Crediting wallet",
                     logo = "https://dashboard.flutterwave.com/static/img/avatar@3x.png",

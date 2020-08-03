@@ -1,5 +1,4 @@
-
-namespace Flutterwave.Interfaces
+namespace Flutterwave.Inheritance
 {
     public interface IUserDetials
     {

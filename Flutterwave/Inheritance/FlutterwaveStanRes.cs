@@ -1,4 +1,4 @@
-namespace Flutterwave.Interfaces
+namespace Flutterwave.Inheritance
 {
     public class FlutterwaveStanRes
     {
