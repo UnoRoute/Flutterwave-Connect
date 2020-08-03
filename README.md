@@ -1,5 +1,5 @@
 <div align="center">
-<image src="https://www.nuget.org/profiles/Bracketcore/avatar?imageSize=512" />
+<image src="https://0.gravatar.com/avatar/cfabb91076e3c3351b9f1534e12e8a59?s=400&d=mm" />
 <h1>Flutterwave Connect for .Net and .Net Core</h1>
 </div>
 
