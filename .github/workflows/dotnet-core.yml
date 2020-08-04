@@ -28,5 +28,5 @@ jobs:
     - name: Publish NuGet
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
-        PROJECT_FILE_PATH: './'
+        PROJECT_FILE_PATH: 'Flutterwave/Flutterwave.csproj'
         NUGET_KEY: ${{ secrets.NUGET }}
