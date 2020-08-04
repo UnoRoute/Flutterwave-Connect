@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-
+    name: Unit Test
     runs-on: ubuntu-latest
 
     steps:
@@ -26,10 +26,12 @@ jobs:
         Flutterwave: ${{secrets.FLUTTERWAVE}}
       run: dotnet test --no-restore --verbosity normal
    
-    Nuget-Publish:
-      steps:
-      - name: Publish NuGet
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          PROJECT_FILE_PATH: 'Flutterwave/Flutterwave.csproj'
-          NUGET_KEY: ${{ secrets.NUGET }}
+  publish_nuget:
+    name: deploy to staging
+    runs-on: ubuntu-latest
+    steps:
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+        PROJECT_FILE_PATH: 'Flutterwave/Flutterwave.csproj'
+        NUGET_KEY: ${{ secrets.NUGET }}
