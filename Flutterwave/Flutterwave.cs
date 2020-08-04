@@ -7,27 +7,29 @@ using System.Threading.Tasks;
 using Flutterwave.Core;
 using Flutterwave.Standard;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace Flutterwave
 {
-    public class Flutterwave
+    public class FLW
     {
-        public Flutterwave(string SecKey)
+        public FLW(string SecKey)
         {
             Sec_Key = SecKey;
         }
 
         /// <summary>
-        /// Security Key
+        ///     Security Key
         /// </summary>
         public string Sec_Key { get; set; }
 
         /// <summary>
-        /// Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint. 
+        ///     Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint.
         /// </summary>
-        /// <param name="para">Collect the customers' details, add it to your request object and call our standard payment endpoint.</param>
+        /// <param name="para">
+        ///     Collect the customers' details, add it to your request object and call our standard payment
+        ///     endpoint.
+        /// </param>
         /// <param name="Seckey">Optional</param>
         /// <returns></returns>
         public async Task<FlutterwaveResponse<FlutterwaveStandardDataResponse>> Standard(FlutterwaveReqPara para)
@@ -50,10 +52,13 @@ namespace Flutterwave
         }
 
         /// <summary>
-        /// Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint. 
+        ///     Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint.
         /// </summary>
         /// <param name="Sec_Key">Your Flutterwave security key</param>
-        /// <param name="para">Collect the customers' details, add it to your request object and call our standard payment endpoint.</param>
+        /// <param name="para">
+        ///     Collect the customers' details, add it to your request object and call our standard payment
+        ///     endpoint.
+        /// </param>
         /// <returns></returns>
         public static async Task<FlutterwaveResponse<FlutterwaveStandardDataResponse>> Standard(string Sec_Key,
             FlutterwaveReqPara para)
@@ -76,40 +81,11 @@ namespace Flutterwave
         }
 
         /// <summary>
-        /// Verify transaction
+        ///     Verify transaction
         /// </summary>
         /// <param name="TransactionId">The Transactional Id for successful transaction</param>
         /// <returns></returns>
-        public async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(string TransactionId)
-        {
-            var Api = Sec_Key;
-
-            using var fetch = new HttpClient();
-            fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
-
-            var response =
-                await fetch.GetAsync(new Uri($"https://api.flutterwave.com/v3/transactions/{TransactionId}/verify"));
-            response.EnsureSuccessStatusCode();
-            var result = await response.Content.ReadAsStringAsync();
-            // var json = JObject.Parse(result);
-
-            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>>(result,
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented,
-                    Culture = CultureInfo.InvariantCulture,
-                    ContractResolver = new CamelCasePropertyNamesContractResolver()
-                });
-        }
-
-        /// <summary>
-        /// Verify transaction
-        /// </summary>
-        /// <param name="Sec_Key">Your Security Key</param>
-        /// <param name="TransactionId">The Transactional Id for successful transaction</param>
-        /// <returns></returns>
-        public static async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(string Sec_Key,
+        public async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(
             string TransactionId)
         {
             var Api = Sec_Key;
@@ -125,7 +101,38 @@ namespace Flutterwave
             // var json = JObject.Parse(result);
 
             return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>>(result,
-                new JsonSerializerSettings()
+                new JsonSerializerSettings
+                {
+                    Formatting = Formatting.Indented,
+                    Culture = CultureInfo.InvariantCulture,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
+        }
+
+        /// <summary>
+        ///     Verify transaction
+        /// </summary>
+        /// <param name="Sec_Key">Your Security Key</param>
+        /// <param name="TransactionId">The Transactional Id for successful transaction</param>
+        /// <returns></returns>
+        public static async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(
+            string Sec_Key,
+            string TransactionId)
+        {
+            var Api = Sec_Key;
+
+            using var fetch = new HttpClient();
+            fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
+
+            var response =
+                await fetch.GetAsync(new Uri($"https://api.flutterwave.com/v3/transactions/{TransactionId}/verify"));
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+            // var json = JObject.Parse(result);
+
+            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>>(result,
+                new JsonSerializerSettings
                 {
                     Formatting = Formatting.Indented,
                     Culture = CultureInfo.InvariantCulture,

@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Flutterwave;
 using Flutterwave.Core;
 using Flutterwave.Model;
 using Flutterwave.Standard;
@@ -11,9 +12,9 @@ namespace Test
 {
     public class FlutterwaveStandardIntegration
     {
-        private Flutterwave.Flutterwave flutterwave;
-        private FlutterwaveReqPara val;
+        private FLW FLW;
         private string key;
+        private FlutterwaveReqPara val;
 
         [SetUp]
         public void Setup()
@@ -37,9 +38,9 @@ namespace Test
             }
 
 
-            flutterwave = new Flutterwave.Flutterwave(key);
+            FLW = new FLW(key);
 
-            val = new FlutterwaveReqPara()
+            val = new FlutterwaveReqPara
             {
                 amount = 3000,
                 customer = new Customer
@@ -67,14 +68,14 @@ namespace Test
         [Test]
         public void CheckKey()
         {
-            Assert.False(string.IsNullOrEmpty(flutterwave.Sec_Key));
-            Assert.True(!string.IsNullOrEmpty(flutterwave.Sec_Key));
+            Assert.False(string.IsNullOrEmpty(FLW.Sec_Key));
+            Assert.True(!string.IsNullOrEmpty(FLW.Sec_Key));
         }
 
         [Test]
         public async Task StandardReturn()
         {
-            var d = await flutterwave.Standard(val);
+            var d = await FLW.Standard(val);
 
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
         }
@@ -82,7 +83,7 @@ namespace Test
         [Test]
         public async Task StandardReturnStatic()
         {
-            var d = await Flutterwave.Flutterwave.Standard(key, val);
+            var d = await FLW.Standard(key, val);
 
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
         }
@@ -90,14 +91,14 @@ namespace Test
         [Test]
         public async Task StandardVerifyTransaction()
         {
-            var d = await flutterwave.VerifyTransaction("1447069");
+            var d = await FLW.VerifyTransaction("1447069");
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
         }
 
         [Test]
         public async Task StandardVerifyTransactionStatic()
         {
-            var d = await Flutterwave.Flutterwave.VerifyTransaction(key, "1447069");
+            var d = await FLW.VerifyTransaction(key, "1447069");
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
         }
     }
