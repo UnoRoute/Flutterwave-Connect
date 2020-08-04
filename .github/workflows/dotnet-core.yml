@@ -22,6 +22,8 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
+      env:
+        Flutterwave: ${{secrets.FLUTTERWAVE}}
       run: dotnet test --no-restore --verbosity normal
     - name: Publish NuGet
       uses: brandedoutcast/publish-nuget@v2.5.5

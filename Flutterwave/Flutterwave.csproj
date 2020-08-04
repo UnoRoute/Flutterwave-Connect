@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <LangVersion>default</LangVersion>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>8</LangVersion>
     <Nullable>enable</Nullable>
     <PackageId>Bracketcore.Integration.FlutterwaveConnect</PackageId>
     <Version>1.0.0</Version>
@@ -21,6 +20,7 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Product>Flutterwave Connect</Product>
     <PackageVersion>1.0.1</PackageVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>

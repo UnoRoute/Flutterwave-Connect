@@ -25,6 +25,11 @@ namespace Test
 
              key = JObject.Parse(appSecret)["secKey"].ToString();
 
+             if (string.IsNullOrEmpty(key))
+             {
+                 key = Environment.GetEnvironmentVariable("Flutterwave");
+             }
+             
             flutterwave = new Flutterwave.Flutterwave(key);
 
             val = new FlutterwaveReqPara()
