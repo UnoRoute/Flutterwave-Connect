@@ -13,6 +13,7 @@ namespace Test
     {
         private Flutterwave.Flutterwave flutterwave;
         private FlutterwaveReqPara val;
+        private string key;
 
         [SetUp]
         public void Setup()
@@ -22,7 +23,7 @@ namespace Test
             var appSecret = File.ReadAllText(
                 Path.Join(env.FullName, @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
 
-            var key = JObject.Parse(appSecret)["secKey"].ToString();
+             key = JObject.Parse(appSecret)["secKey"].ToString();
 
             flutterwave = new Flutterwave.Flutterwave(key);
 
@@ -65,12 +66,26 @@ namespace Test
 
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
         }
+        
+        [Test]
+        public async Task StandardReturnStatic()
+        {
+            var d = await Flutterwave.Flutterwave.Standard(key,val);
+
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
+        }
 
         [Test]
         public async Task StandardVerifyTransaction()
         {
             var d = await flutterwave.VerifyTransaction("1447069");
-            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveVerifyReponse>));
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
+        }
+        [Test]
+        public async Task StandardVerifyTransactionStatic()
+        {
+            var d = await Flutterwave.Flutterwave.VerifyTransaction(key,"1447069");
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
         }
     }
 }

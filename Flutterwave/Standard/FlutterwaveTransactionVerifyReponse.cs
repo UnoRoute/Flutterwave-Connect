@@ -5,7 +5,7 @@ using Flutterwave.Model;
 
 namespace Flutterwave.Standard
 {
-    public class FlutterwaveVerifyReponse
+    public class FlutterwaveTransactionVerifyReponse
     {
         public int? id { get; set; }
         public string tx_ref { get; set; }
@@ -20,13 +20,13 @@ namespace Flutterwave.Standard
         public string? payment_type { get; set; }
         public string? created_at { get; set; }
         public string? account_id { get; set; }
-        public FlutterwaveCardResponse? Card { get; set; }
+        public FlutterwaveCardResponse Card { get; set; }
         public int? amount_settled { get; set; }
         
         public double amount { get; set; }
         public string currency { get; set; } = "NGN";
         public SHA256? integrity_hash { get; set; }
-        public FlutterwavePaymentOptions? payment_option { get; set; }
+        public FlutterwavePaymentOptions payment_option { get; set; }
         public string? payment_plan { get; set; }
         public string redirect_url { get; set; }
         public Customer customer { get; set; }

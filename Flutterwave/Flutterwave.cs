@@ -28,30 +28,25 @@ namespace Flutterwave
         /// Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint. 
         /// </summary>
         /// <param name="para">Collect the customers' details, add it to your request object and call our standard payment endpoint.</param>
+        /// <param name="Seckey">Optional</param>
         /// <returns></returns>
         public async Task<FlutterwaveResponse<FlutterwaveStandardDataResponse>> Standard(FlutterwaveReqPara para)
         {
-            try
-            {
-                var Api = Sec_Key;
-                var json = JsonConvert.SerializeObject(para);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var Api = Sec_Key;
 
-                using var fetch = new HttpClient();
-                fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
 
-                var response = await fetch.PostAsync(new Uri("https://api.flutterwave.com/v3/payments"), data);
-                response.EnsureSuccessStatusCode();
-                var result = await response.Content.ReadAsStringAsync();
+            var json = JsonConvert.SerializeObject(para);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-                return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveStandardDataResponse>>(result);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            using var fetch = new HttpClient();
+            fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
+
+            var response = await fetch.PostAsync(new Uri("https://api.flutterwave.com/v3/payments"), data);
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveStandardDataResponse>>(result);
         }
 
         /// <summary>
@@ -63,35 +58,29 @@ namespace Flutterwave
         public static async Task<FlutterwaveResponse<FlutterwaveStandardDataResponse>> Standard(string Sec_Key,
             FlutterwaveReqPara para)
         {
-            try
-            {
-                var Api = Sec_Key;
-                var json = JsonConvert.SerializeObject(para);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var Api = Sec_Key;
 
-                using var fetch = new HttpClient();
-                fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
 
-                var response = await fetch.PostAsync(new Uri("https://api.flutterwave.com/v3/payments"), data);
-                response.EnsureSuccessStatusCode();
-                var result = await response.Content.ReadAsStringAsync();
+            var json = JsonConvert.SerializeObject(para);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-                return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveStandardDataResponse>>(result);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            using var fetch = new HttpClient();
+            fetch.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            fetch.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Api);
+
+            var response = await fetch.PostAsync(new Uri("https://api.flutterwave.com/v3/payments"), data);
+            response.EnsureSuccessStatusCode();
+            var result = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveStandardDataResponse>>(result);
         }
-        
+
         /// <summary>
         /// Verify transaction
         /// </summary>
         /// <param name="TransactionId">The Transactional Id for successful transaction</param>
         /// <returns></returns>
-        public async Task<FlutterwaveResponse<FlutterwaveVerifyReponse>?> VerifyTransaction(string TransactionId)
+        public async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(string TransactionId)
         {
             var Api = Sec_Key;
 
@@ -104,22 +93,24 @@ namespace Flutterwave
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             // var json = JObject.Parse(result);
-            
-            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveVerifyReponse>>(result, new JsonSerializerSettings()
-            {  
-                Formatting = Formatting.Indented,
-                Culture = CultureInfo.InvariantCulture,
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            });
+
+            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>>(result,
+                new JsonSerializerSettings()
+                {
+                    Formatting = Formatting.Indented,
+                    Culture = CultureInfo.InvariantCulture,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
         }
-        
+
         /// <summary>
         /// Verify transaction
         /// </summary>
         /// <param name="Sec_Key">Your Security Key</param>
         /// <param name="TransactionId">The Transactional Id for successful transaction</param>
         /// <returns></returns>
-        public static async Task<FlutterwaveResponse<FlutterwaveReqPara>> VerifyTransaction(string Sec_Key,string TransactionId)
+        public static async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(string Sec_Key,
+            string TransactionId)
         {
             var Api = Sec_Key;
 
@@ -131,7 +122,15 @@ namespace Flutterwave
                 await fetch.GetAsync(new Uri($"https://api.flutterwave.com/v3/transactions/{TransactionId}/verify"));
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveReqPara>>(result);
+            // var json = JObject.Parse(result);
+
+            return JsonConvert.DeserializeObject<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>>(result,
+                new JsonSerializerSettings()
+                {
+                    Formatting = Formatting.Indented,
+                    Culture = CultureInfo.InvariantCulture,
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                });
         }
     }
 }
