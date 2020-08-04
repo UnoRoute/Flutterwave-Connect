@@ -63,7 +63,14 @@ namespace Test
         {
             var d = await flutterwave.Standard(val);
 
-            Assert.True(d.GetType() == typeof(FlutterwaveResponse<>));
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
+        }
+
+        [Test]
+        public async Task StandardVerifyTransaction()
+        {
+            var d = await flutterwave.VerifyTransaction("1447069");
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveVerifyReponse>));
         }
     }
 }

@@ -1,19 +1,24 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0b07dfcc_002D84b4_002D4222_002D8b48_002D78bae9be992e/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="StandardVerifyTransaction" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::454C7B4C-E9F7-452D-B6FA-8A41E3F086A4::.NETCoreApp,Version=v3.1::Test.FlutterwaveStandardIntegration.StandardVerifyTransaction&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7d8add29_002D9de5_002D4794_002Daf41_002Da312b30222c0/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="StandardReturn #3" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::454C7B4C-E9F7-452D-B6FA-8A41E3F086A4::.NETCoreApp,Version=v3.1::Test.FlutterwaveStandardIntegration.StandardReturn&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ab2d6d7f_002Db5ed_002D48b5_002Db0a1_002D05df3260b192/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="All tests from &amp;lt;Test&amp;gt;" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;Project Location="/Users/ehigiepaul/RiderProjects/Flutterwave/Test" Presentation="&amp;lt;Test&amp;gt;" /&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9b0d7b69_002D37fe_002D4707_002Db6c0_002Dfc9fe73da456/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="StandardVerifyTransaction #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::454C7B4C-E9F7-452D-B6FA-8A41E3F086A4::.NETCoreApp,Version=v3.1::Test.FlutterwaveStandardIntegration.StandardVerifyTransaction&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d16c8db9_002Dca9b_002D43ec_002Dbc88_002D660ab98eac72/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="StandardReturn #2" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::454C7B4C-E9F7-452D-B6FA-8A41E3F086A4::.NETCoreApp,Version=v3.1::Test.FlutterwaveStandardIntegration.StandardReturn&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f2e3ee3f_002Dce61_002D41ea_002D9d47_002Dd70d16c7fdd9/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="StandardReturn" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::454C7B4C-E9F7-452D-B6FA-8A41E3F086A4::.NETCoreApp,Version=v3.1::Test.FlutterwaveStandardIntegration.StandardReturn&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+	</wpf:ResourceDictionary>
