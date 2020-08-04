@@ -18,7 +18,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Product>Flutterwave Connect</Product>
-    <PackageVersion>1.0.3</PackageVersion>
+    <Version>1.0.3</Version>
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
