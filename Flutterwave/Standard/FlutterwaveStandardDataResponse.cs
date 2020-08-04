@@ -1,6 +1,6 @@
 namespace Flutterwave.Standard
 {
-    public  class StandardDataResponse
+    public  class FlutterwaveStandardDataResponse
     {
         public string link { get; set; }
     }

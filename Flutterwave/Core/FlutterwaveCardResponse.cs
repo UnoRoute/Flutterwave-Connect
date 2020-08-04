@@ -1,7 +1,7 @@
 namespace Flutterwave.Core
 {
  
-        internal  class FlutterwaveCardResponse    {
+        public  class FlutterwaveCardResponse    {
                public string first_6digits { get; set; } 
                public string last_4digits { get; set; } 
                public string issuer { get; set; } 

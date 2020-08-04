@@ -1,7 +1,7 @@
 namespace Flutterwave.Core
 {
   
-            internal enum FlutterwaveTransactionChargeTypes
+            public enum FlutterwaveTransactionChargeTypes
             {
                 flat,
                 percentage,
