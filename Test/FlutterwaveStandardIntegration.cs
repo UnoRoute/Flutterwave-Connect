@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Flutterwave.Inheritance;
+using Flutterwave.Core;
 using Flutterwave.Model;
+using Flutterwave.Standard;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -25,7 +26,7 @@ namespace Test
 
             flutterwave = new Flutterwave.Flutterwave(key);
 
-            val = new FlutterwaveReqPara
+            val = new FlutterwaveReqPara()
             {
                 amount = 3000,
                 customer = new Customer
@@ -38,13 +39,13 @@ namespace Test
                     FirstName = "Paul",
                     LastName = "Paul"
                 },
-                customization = new FlutterCustomization
+                customization = new FlutterwaveCustomization
                 {
                     description = "Crediting wallet",
                     logo = "https://dashboard.flutterwave.com/static/img/avatar@3x.png",
                     title = "Help"
                 },
-                payment_option = PaymentOptions.card,
+                payment_option = FlutterwavePaymentOptions.card,
                 redirect_url = "https://google.com",
                 tx_ref = "dsj278378198712"
             };
@@ -62,7 +63,7 @@ namespace Test
         {
             var d = await flutterwave.Standard(val);
 
-            Assert.True(d.GetType() == typeof(FlutterwaveStanRes));
+            Assert.True(d.GetType() == typeof(FlutterwaveResponse<>));
         }
     }
 }

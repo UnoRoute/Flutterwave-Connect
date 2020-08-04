@@ -1,3 +1,5 @@
+using System;
+
 namespace Flutterwave.Model
 {
     public class Customer
@@ -9,5 +11,7 @@ namespace Flutterwave.Model
         public string? LastName { get; set; }
         public string? FirstName { get; set; }
         public string? CustomerId { get; set; }
+        public DateTime? created_at { get; set; }
+        public int? id { get; set; } 
     }
 }
