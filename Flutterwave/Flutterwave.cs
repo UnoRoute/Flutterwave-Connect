@@ -23,6 +23,7 @@ namespace Flutterwave
         /// </summary>
         public string Sec_Key { get; set; }
 
+
         /// <summary>
         ///     Accept payment quickly and securely using the standard method by calling flutterwave /payments endpoint.
         /// </summary>
