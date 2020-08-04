@@ -20,16 +20,23 @@ namespace Test
         {
             var env = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
 
-            var appSecret = File.ReadAllText(
-                Path.Join(env.FullName, @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
 
-             key = JObject.Parse(appSecret)["secKey"].ToString();
+            var exist = File.Exists(Path.Join(env.FullName,
+                @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
 
-             if (string.IsNullOrEmpty(key))
-             {
-                 key = Environment.GetEnvironmentVariable("Flutterwave");
-             }
-             
+            if (exist)
+            {
+                var appSecret = File.ReadAllText(
+                    Path.Join(env.FullName,
+                        @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
+                key = JObject.Parse(appSecret)["secKey"].ToString();
+            }
+            else
+            {
+                key = Environment.GetEnvironmentVariable("Flutterwave");
+            }
+
+
             flutterwave = new Flutterwave.Flutterwave(key);
 
             val = new FlutterwaveReqPara()
@@ -71,11 +78,11 @@ namespace Test
 
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
         }
-        
+
         [Test]
         public async Task StandardReturnStatic()
         {
-            var d = await Flutterwave.Flutterwave.Standard(key,val);
+            var d = await Flutterwave.Flutterwave.Standard(key, val);
 
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveStandardDataResponse>));
         }
@@ -86,10 +93,11 @@ namespace Test
             var d = await flutterwave.VerifyTransaction("1447069");
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
         }
+
         [Test]
         public async Task StandardVerifyTransactionStatic()
         {
-            var d = await Flutterwave.Flutterwave.VerifyTransaction(key,"1447069");
+            var d = await Flutterwave.Flutterwave.VerifyTransaction(key, "1447069");
             Assert.True(d.GetType() == typeof(FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>));
         }
     }
