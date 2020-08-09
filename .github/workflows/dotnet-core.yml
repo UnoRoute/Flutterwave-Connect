@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Unit Test
+    name: Test and deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -17,37 +17,26 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.302
+    
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
+      
+    - name: Build dotnet
       run: dotnet build --configuration Release --no-restore
+      
     - name: Test
       env:
         Flutterwave: ${{secrets.FLUTTERWAVE}}
       run: dotnet test --no-restore --verbosity normal
-   
-  publish_nuget:
-    name: deploy to nuget
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.302
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+
     - name: Publish NuGet
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: 'Flutterwave/Flutterwave.csproj'
         NUGET_KEY: ${{ secrets.NUGET }}
+      
     - name: Start github package
       run: dotnet nuget add source https://nuget.pkg.github.com/Bracketcore/index.json -n github -u Bracketcore -p ${{secrets.GH_PACKAGE_PAUL}} --store-password-in-clear-text 
-    - name : echo 
-      run: echo ${{secrets.GH_PACKAGE_PAUL}}
+ 
     - name: publish to github package
-      run: dotnet nuget push "bin/Release/*.nupkg" --source "github"
+      run: dotnet nuget push "Flutterwave/bin/Release/*.nupkg" --source "github"
