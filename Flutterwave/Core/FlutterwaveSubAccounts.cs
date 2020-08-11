@@ -14,20 +14,20 @@ namespace Flutterwave.Core
                 ///     1. You are splitting between more than one subaccount.
                 ///     2. You are not passing the exact amount you expect the subaccount to get.
                 /// </summary>
-                public int? transaction_split_ratio { get; set; }
+                public int transaction_split_ratio { get; set; }
         
                 /// <summary>
                 ///     This represents the type for the commission you would like to charge, if you would like to charge a flat fee pass
                 ///     the value as flat. If you would like to charge a percentage pass the value as percentage. When you pass this you
                 ///     override the type set as commission when the subaccount was created.
                 /// </summary>
-                public FlutterwaveTransactionChargeTypes? transaction_charge_type { get; set; }
+                public FlutterwaveTransactionChargeTypes transaction_charge_type { get; set; }
         
                 /// <summary>
                 ///     The flat or percentage value to charge as commission on the transaction. When you pass this, you override the
                 ///     values set as commission when the subaccount was created.
                 /// </summary>
-                public double? transaction_charge { get; set; }
+                public double transaction_charge { get; set; }
             }
 
     

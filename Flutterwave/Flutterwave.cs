@@ -86,7 +86,7 @@ namespace Flutterwave
         /// </summary>
         /// <param name="TransactionId">The Transactional Id for successful transaction</param>
         /// <returns></returns>
-        public async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(
+        public async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>> VerifyTransaction(
             string TransactionId)
         {
             var Api = Sec_Key;
@@ -116,7 +116,7 @@ namespace Flutterwave
         /// <param name="Sec_Key">Your Security Key</param>
         /// <param name="TransactionId">The Transactional Id for successful transaction</param>
         /// <returns></returns>
-        public static async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>?> VerifyTransaction(
+        public static async Task<FlutterwaveResponse<FlutterwaveTransactionVerifyReponse>> VerifyTransaction(
             string Sec_Key,
             string TransactionId)
         {
