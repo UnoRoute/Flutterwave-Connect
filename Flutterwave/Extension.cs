@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Flutterwave
+namespace Bracketcore.Flutterwave
 {
     public static class Extension
     {

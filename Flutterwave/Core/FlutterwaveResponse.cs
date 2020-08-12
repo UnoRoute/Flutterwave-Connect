@@ -1,4 +1,4 @@
-namespace Flutterwave.Core
+namespace Bracketcore.Flutterwave.Core
 {
     public class FlutterwaveResponse<T>
     {

@@ -1,10 +1,12 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Flutterwave;
-using Flutterwave.Core;
-using Flutterwave.Model;
-using Flutterwave.Standard;
+using Bracketcore.Flutterwave;
+using Bracketcore.Flutterwave.Core;
+using Bracketcore.Flutterwave.Model;
+using Bracketcore.Flutterwave.Standard;
+using Microsoft.Extensions.Configuration;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -20,17 +22,27 @@ namespace Test
         public void Setup()
         {
             var env = Directory.GetParent(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+            bool exist;
+            string loc;
 
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                loc = Path.Join(env.FullName,
+                    @"/Roaming/microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json");
+                exist = File.Exists(loc);
+            }
+            else
+            {
+                loc = Path.Join(env.FullName,
+                    @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json");
+                exist = File.Exists(loc);
+            }
 
-            var exist = File.Exists(Path.Join(env.FullName,
-                @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
 
             if (exist)
             {
-                var appSecret = File.ReadAllText(
-                    Path.Join(env.FullName,
-                        @".microsoft/usersecrets/eda8ad3e-643c-49b4-b611-f1a54a0739ef/secrets.json"));
-                key = JObject.Parse(appSecret)["secKey"].ToString();
+                var appSecret = File.ReadAllText(loc);
+                key = JObject.Parse(appSecret)["secKey"]?.ToString();
             }
             else
             {

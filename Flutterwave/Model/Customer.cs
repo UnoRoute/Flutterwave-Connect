@@ -1,6 +1,6 @@
 using System;
 
-namespace Flutterwave.Model
+namespace Bracketcore.Flutterwave.Model
 {
     public class Customer
     {

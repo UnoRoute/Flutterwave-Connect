@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using Flutterwave.Core;
-using Flutterwave.Model;
+using Bracketcore.Flutterwave.Core;
+using Bracketcore.Flutterwave.Model;
 
-namespace Flutterwave.Standard
+namespace Bracketcore.Flutterwave.Standard
 {
     public class FlutterwaveReqPara
     {

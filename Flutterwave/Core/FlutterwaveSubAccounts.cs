@@ -1,5 +1,5 @@
 
-namespace Flutterwave.Core
+namespace Bracketcore.Flutterwave.Core
 {
     public class FlutterwaveSubAccounts
             {

@@ -4,12 +4,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Flutterwave.Core;
-using Flutterwave.Standard;
+using Bracketcore.Flutterwave.Core;
+using Bracketcore.Flutterwave.Standard;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Flutterwave
+namespace Bracketcore.Flutterwave
 {
     public class FLW
     {

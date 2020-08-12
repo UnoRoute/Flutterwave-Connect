@@ -1,4 +1,4 @@
-namespace Flutterwave.Standard
+namespace Bracketcore.Flutterwave.Standard
 {
     public  class FlutterwaveStandardDataResponse
     {
